@@ -16,8 +16,8 @@ const DashboardPage = () => {
   return (
     <div>
       <div
-        className="card"
-        style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "space-between" }}
+        className="card dashboard-header"
+        style={{ marginBottom: "1.5rem" }}
       >
         <div>
           <h1>Student Dashboard</h1>
@@ -26,7 +26,7 @@ const DashboardPage = () => {
             high-fit
           </p>
         </div>
-        <div>
+        <div className="dashboard-alerts">
           <div className="section-header">Alerts</div>
           <p style={{ fontSize: "0.9rem" }}>
   {notifications.newMatchesCount > 0
