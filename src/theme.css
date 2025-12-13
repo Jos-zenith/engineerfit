@@ -1,0 +1,230 @@
+:root {
+  --cream: #F5F1E6;
+  --navy: #1F3B4D;
+  --maroon: #7A2F2F;
+  --olive: #6B7D5C;
+  --gold: #C8A951;
+  --text: #1F3B4D;
+  --radius-card: 12px;
+  --shadow-soft: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+}
+
+/* Retro grainy texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  z-index: -1;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Merriweather", "Georgia", serif;
+  letter-spacing: 0.03em;
+}
+
+label, .mono-label {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Layout */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* Cards */
+.card {
+  background: rgba(245, 241, 230, 0.95);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(31, 59, 77, 0.08);
+  padding: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--navy), #142531);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(20, 37, 49, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--olive);
+  color: #fdfbf3;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(31, 59, 77, 0.4);
+  color: var(--navy);
+}
+
+/* Inputs */
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(31, 59, 77, 0.25);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+/* Nav */
+.navbar {
+  background: #f0e7d5;
+  border-bottom: 1px solid rgba(31, 59, 77, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: "Merriweather", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  font-family: "IBM Plex Mono", ui-monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.nav-link-active {
+  background: var(--navy);
+  color: #fdfbf3;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background: var(--maroon);
+  color: #fff;
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+}
+
+/* Section headers */
+.section-header {
+  border-left: 4px solid var(--gold);
+  padding-left: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--maroon);
+}
+
+/* Progress bar */
+.progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(107, 125, 92, 0.2);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--olive), var(--gold));
+  transition: width 0.25s ease-out;
+}
+
+/* Utility */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 59, 77, 0.2);
+  font-size: 0.7rem;
+  margin: 0 0.25rem 0.25rem 0;
+}
+
+/* Focus visible for keyboard */
+:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 2px;
+}
